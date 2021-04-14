@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <style>
+        body { font-family: arial; margin: 20px; }
+        td { padding: 5px; }
+        .bullish { background: green; color: white; }
+        .bearish { background: red; color: white; }
+        </style>
+        <title>Signals</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <script type="https://semantic-ui.com/javascript/library/tablesort.js"> </script>
+        <script>
+            $('.sortable.table').tablesort();
+        </script>
+
+    </head>
+    <body>
+
+    <div class = "ui container">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_1bec2"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.widget(
+      {
+      "width": "100%",
+      "height": 610,
+      "symbol": "BINANCE:BTCUSDT",
+      "interval": "D",
+      "timezone": "Europe/Paris",
+      "theme": "dark",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "enable_publishing": false,
+      "allow_symbol_change": true,
+      "studies_overrides": {
+            "moving average exponential.length": 20
+        },
+      "studies": [
+        "BB@tv-basicstudies",
+        "MASimple@tv-basicstudies"
+      ],
+      "container_id": "tradingview_1bec2"
+    }
+      );
+      </script>
+    </div>
+<!-- TradingView Widget END -->
+    <h1>Signals</h1>
+    <table class="ui sortable celled table" id="index_table">
+
+      <thead>
+      <tr>
+         <th>Symbol</th>
+         <th>M5</th>
+         <th>M15</th>
+         <th>M30</th>
+         <th>H1</th>
+         <th>H2</th>
+         <th>H4</th>
+         <th>H6</th>
+         <th>H8</th>
+         <th>H12</th>
+         <th>D1</th>
+         <th>D3</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for signal in signals %}
+        <tr>
+          <td>{{ signal.symbol }}</td>
+          {% if signal.M5 %}
+            <td class="selectable"><a href="#">{{ signal.M5 }}</a></td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.M15 %}
+            <td class="selectable">{{ signal.M15 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.M30 %}
+            <td class="selectable">{{ signal.M30 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H1 %}
+            <td class="selectable">{{ signal.H1 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H2 %}
+            <td class="selectable">{{ signal.H2 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H4 %}
+            <td class="selectable">{{ signal.H4 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H6 %}
+            <td class="selectable">{{ signal.H6 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H8 %}
+            <td class="selectable">{{ signal.H8 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.H12 %}
+            <td class="selectable">{{ signal.H12 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.D1 %}
+            <td class="selectable">{{ signal.D1 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+          {% if signal.D3 %}
+            <td class="selectable">{{ signal.D3 }}</td>
+          {% else %}
+            <td></td>
+          {%- endif %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+

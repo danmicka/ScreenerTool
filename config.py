@@ -1,0 +1,4 @@
+API_KEY = 'bk8AQl1haEXQEtt1u1248bYJYnS1ekkl6wkSNfJi0TU8htwIUM5x6XIopWyV4lNJ'
+API_SECRET = 'AECVaTqEWxL2vD1DrG0nR8uBdBYO1WV8JhWpyEu1CfKOFdR4KrD7CVY5loBr3TuW'
+
+DB_FILE = '/home/pro/Desktop/ScreenerTools/data/app.db'
